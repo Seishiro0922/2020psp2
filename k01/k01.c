@@ -35,7 +35,7 @@ int main(void)
         var=var_online(val,ave,save,i);
 
 
-    save=var_online(ave2,pow(val,2),i);
+    save=var_online(save,pow(val,2),i);
 
 
 
