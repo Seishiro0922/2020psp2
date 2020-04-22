@@ -32,7 +32,7 @@ int main(void)
         sscanf(buf,"%lf",&val);
         i++;
         ave=ave_online(val,ave,i);
-        var=var_online(val,ave,save);
+        var=var_online(val,ave,save,i);
 
 
     save=var_online(ave2,pow(val,2),i);
