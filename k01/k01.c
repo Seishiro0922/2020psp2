@@ -3,15 +3,19 @@
 #include <string.h>
 #include <math.h>
 
-extern double ave_online(double val,double ave)
-extern double var_online()
+extern double ave_online(double val,double ave,int i)
+{return ((i-1)*ave)/i + val/i;}
+extern double var_online(double val, double ave,double save,int i)
+{return (((i-1)*save)/i+pow(val,2)/i)-pow(((i-1)*ave/i)+(val/i));}
 
 int main(void)
 {
-    double val;
+    double val,ave,var,save;
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
+    int i;
+    i=0;
 
     printf("input the filename of sample:");
     fgets(fname,sizeof(fname),stdin);
@@ -26,9 +30,12 @@ int main(void)
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
+        i++;
+        ave=ave_online(val,ave,i);
+        var=var_online(val,ave,save);
 
 
-    
+    save=var_online(ave2,pow(val,2),i);
 
 
 
@@ -38,6 +45,8 @@ int main(void)
         fputs("file close error\n",stderr);
         exit(EXIT_FAILURE);
     }
+    printf("ave=%lf\n",ave);
+    printf("var=%lf\n",var);
 
 
     return 0;
