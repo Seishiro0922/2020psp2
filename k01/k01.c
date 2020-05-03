@@ -16,7 +16,6 @@ int main(void)
     FILE* fp;
     int i;
     i=0;
-    save=pow(ave_online,2);
 
     printf("input the filename of sample:");
     fgets(fname,sizeof(fname),stdin);
@@ -32,11 +31,11 @@ int main(void)
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
         i++;
-        ave=ave_online(val[i],ave,i);
-        var=var_online(val[i],ave,save,i);
+        ave=ave_online(val,ave,i);
+        var=var_online(val,ave,save,i);
 
 
-    save=var_online(save,pow(val,2),i);
+    save=ave_online(pow(double val,2),double ave,int i);
 
 
 
