@@ -3,21 +3,21 @@
 #include <string.h>
 #include <math.h>
 
-extern double ave_online(int i,double val,double ave,int n)
-{ n=1000;
+extern double ave_online(int i,double val[i],double ave,int n)
+{ 
   ave=1;
      for(i=1;i<=n;i++){
-         ave=((i-1)*ave)/i+val/i;
+         ave=((i-1)*ave)/i+val[i]/i;
      }
      return ave;
 }
-extern double var_online(int i,double val, double ave,double save,int n,double var)
-{  n=1000;
+extern double var_online(int i,double val[i], double ave,double save,int n,double var)
+{  
    ave=1;save=1;
     for(i=1;i<=n;i++){
-       var=(((i-1)*save)/i+(val*val)/i)-pow((((i-1)*ave)/i+(val/i)),2);
-        save=(((i-1)*save)/i+pow(val,2)/i);
-        ave=((i-1)*ave)/i+val/i;
+       var=(((i-1)*save)/i+(val[i]*val[i])/i)-pow((((i-1)*ave)/i+(val[i]/i)),2);
+        save=(((i-1)*save)/i+pow(val[i],2)/i);
+        ave=((i-1)*ave)/i+val[i]/i;
     }
     return var;
 }
@@ -26,7 +26,8 @@ extern double var_online(int i,double val, double ave,double save,int n,double v
 int main(void)
 {   
     int i,n;
-    double val,ave,save,var,A1,A2;
+    double val[i],ave,save,var;
+    float A1,A2;
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
@@ -43,7 +44,8 @@ int main(void)
     }
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
-        sscanf(buf,"%lf",&val);
+        sscanf(buf,"%lf",&val[i]);
+        scanf("%d", &n);
 
         A1=ave_online(i,val,ave,n);
         A2=var_online(i,val,save,ave,n,var);
