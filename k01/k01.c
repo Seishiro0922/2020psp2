@@ -4,7 +4,7 @@
 #include <math.h>
 
 extern double ave_online(int i,double val[i],double ave,int n)
-{ 
+{ n=20
   ave=1;
      for(i=1;i<=n;i++){
          ave=((i-1)*ave)/i+val[i]/i;
@@ -12,7 +12,7 @@ extern double ave_online(int i,double val[i],double ave,int n)
      return ave;
 }
 extern double var_online(int i,double val[i], double ave,double save,int n,double var)
-{  
+{  n=20
    ave=1;save=1;
     for(i=1;i<=n;i++){
        var=(((i-1)*save)/i+(val[i]*val[i])/i)-pow((((i-1)*ave)/i+(val[i]/i)),2);
@@ -44,11 +44,11 @@ int main(void)
     }
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
-        scanf("%d", &n);
+        
         sscanf(buf,"%lf",&val[i]);
 
-        A1=ave_online(i,val,ave,n);
-        A2=var_online(i,val,save,ave,n,var);
+        A1=ave_online(i,val[i],ave,n);
+        A2=var_online(i,val[i],save,ave,n,var);
     }
 
     if(fclose(fp) == EOF){
