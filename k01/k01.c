@@ -44,8 +44,8 @@ int main(void)
     }
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
-        sscanf(buf,"%lf",&val[i]);
         scanf("%d", &n);
+        sscanf(buf,"%lf",&val[i]);
 
         A1=ave_online(i,val,ave,n);
         A2=var_online(i,val,save,ave,n,var);
