@@ -3,19 +3,33 @@
 #include <string.h>
 #include <math.h>
 
-extern double ave_online(double val,double ave,int i)
-{return ((i-1)*ave)/i + val/i;}
-extern double var_online(double val, double ave,double save,int i)
-{return (((i-1)*save)/i+pow(val,2)/i)-pow((((i-1)*ave/i)+(val/i)),2);}
+extern double ave_online(int i,double val,double ave,int n)
+{ n=1000;
+  ave=1;
+     for(i=1;i<=n;i++){
+         ave=((i-1)*ave)/i+val/i;
+     }
+     return ave;
+}
+extern double var_online(int i,double val, double ave,double save,int n,double var)
+{  n=1000;
+   ave=1;save=1;
+    for(i=1;i<=n;i++){
+       var=(((i-1)*save)/i+(val*val)/i)-pow((((i-1)*ave)/i+(val/i)),2);
+        save=(((i-1)*save)/i+pow(val,2)/i);
+        ave=((i-1)*ave)/i+val/i;
+    }
+    return var;
+}
+
 
 int main(void)
-{
-    double val,ave,var,save;
+{   
+    int i,n;
+    double val,ave,save,var,A1,A2;
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
-    int i;
-    i=0;
 
     printf("input the filename of sample:");
     fgets(fname,sizeof(fname),stdin);
@@ -30,23 +44,17 @@ int main(void)
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
-        i++;
-        ave=ave_online(val,ave,i);
-        var=var_online(val,ave,save,i);
 
-
-    save=ave_online(pow(double val,2),double ave,int i);
-
-
-
+        A1=ave_online(i,val,ave,n);
+        A2=var_online(i,val,save,ave,n,var);
     }
 
     if(fclose(fp) == EOF){
         fputs("file close error\n",stderr);
         exit(EXIT_FAILURE);
     }
-    printf("ave=%lf\n",ave);
-    printf("var=%lf\n",var);
+    printf("ave=%lf\n",A1);
+    printf("var=%lf\n",A2);
 
 
     return 0;
