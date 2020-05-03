@@ -4,13 +4,13 @@
 #include <math.h>
 
 extern double ave_online(double val,double ave,int i)
-{return ((i-1)*ave[i-1])/i + val[i]/i;}
+{return ((i-1)*ave)/i + val/i;}
 extern double var_online(double val, double ave,double save,int i)
-{return (((i-1)*save[i-1])/i+pow(val[i],2)/i)-pow((((i-1)*ave[i-1]/i)+(val[i]/i)),2);}
+{return (((i-1)*save)/i+pow(val,2)/i)-pow((((i-1)*ave/i)+(val/i)),2);}
 
 int main(void)
 {
-    double val[i],ave,var,save;
+    double val,ave,var,save;
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
