@@ -33,14 +33,14 @@ int main(void)
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
-        for(i=1;i<=8;i++){
+        
         z1=(val-u1)/b1;
         z2=(val-u2)/b2;
         x1=p_stdnorm(z1);
         x2=p_stdnorm(z2);
         max_val=max_val*x1;
         min_val=min_val*x2;
-        }
+        
 
 
 
