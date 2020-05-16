@@ -11,13 +11,13 @@ extern double ave_online(int i,double val,double ave,int n)
      }
      return ave;
 }
-extern double var_online(int i,double val, double ave,double save,int n,double var)
+extern double var_online(int i,double val, double ve,double save,int n,double var)
 {  
-   ave=1;save=1;
+   ve=1;save=1;
     for(i=1;i<=8;i++){
-       var=(((i-1)*save)/i+(val*val)/i)-pow((((i-1)*ave)/i+(val/i)),2);
+       var=(((i-1)*save)/i+(val*val)/i)-pow((((i-1)*ve)/i+(val/i)),2);
         save=(((i-1)*save)/i+pow(val,2)/i);
-        ave=((i-1)*ave)/i+val/i;
+        ve=((i-1)*ve)/i+val/i;
     }
     return var;
 }
@@ -26,7 +26,7 @@ extern double var_online(int i,double val, double ave,double save,int n,double v
 int main(void)
 {   
     int i,n;
-    double val,ave,save,var,A1,A2,u,x;
+    double val,ave,save,var,A1,A2,u,x,ve;
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
@@ -49,7 +49,7 @@ int main(void)
         sscanf(buf,"%lf",&val);
 
         A1=ave_online(i,val,ave,n);
-        A2=var_online(i,val,save,ave,n,var);
+        A2=var_online(i,val,save,ve,n,var);
 
         u=(A2*i)/(i-1);
         x=A1;
