@@ -11,7 +11,7 @@ extern double ave_online(int i,double val,double ave)
 extern double var_online(int i,double val, double ve,double save,double var)
 {  save=1;
    ve=1;
-   var=(((i-1)*save/i)+val*val/i)-pow((((i-1)*ve/i)+val/i),2.0);
+   var=(((i-1)*save/i)+val*val/i)-pow((((i-1)*ve/i)+val/i),2);
    save=(i-1)*save/i+val*val/i;
    ve=(i-1)*ve/i+val/i;
     return var;
@@ -47,10 +47,12 @@ int main(void)
         A1=ave_online(i,val,ave);
         A2=var_online(i,val,save,ve,var);
 
-        u=(A2*i)/(i-1);
-        x=A1;
+        
     }
 
+     u=i*A2/(i-1);
+     x=A1;
+     
     if(fclose(fp) == EOF){
         fputs("file close error\n",stderr);
         exit(EXIT_FAILURE);
