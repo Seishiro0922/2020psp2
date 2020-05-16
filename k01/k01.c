@@ -3,29 +3,24 @@
 #include <string.h>
 #include <math.h>
 
-extern double ave_online(int i,double val,double ave,int n)
-{
-  ave=1;
-     for(i=1;i<=8;i++){
-         ave=((i-1)*ave)/i+val/i;
-     }
-     return ave;
+extern double ave_online(int i,double val,double ave)
+{ ave=1;
+  ave=(i-1)*ave/i+val/i;
+  return ave;     
 }
-extern double var_online(int i,double val, double ve,double save,int n,double var)
-{  
-   ve=1;save=1;
-    for(i=1;i<=8;i++){
-       var=((((i-1)*save)/i)+(val*val)/i)-pow((((i-1)*ve)/i+(val/i)),2);
-        save=(((i-1)*save)/i+pow(val,2)/i);
-        ve=((i-1)*ve)/i+val/i;
-    }
+extern double var_online(int i,double val, double ve,double save,double var)
+{  save=1;
+   ve=1;
+   var=(((i-1)*save/i)+val*val/i)-pow((((i-1)*ve/i)+val/i),2.0);
+   save=(i-1)*save/i+val*val/i;
+   ve=(i-1)*ve/i+val/i;
     return var;
 }
 
 
 int main(void)
 {   
-    int i,n;
+    int i=0;
     double val,ave,save,var,A1,A2,u,x,ve;
     char fname[FILENAME_MAX];
     char buf[256];
@@ -47,9 +42,10 @@ int main(void)
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
+        i++;
 
-        A1=ave_online(i,val,ave,n);
-        A2=var_online(i,val,save,ve,n,var);
+        A1=ave_online(i,val,ave);
+        A2=var_online(i,val,save,ve,var);
 
         u=(A2*i)/(i-1);
         x=A1;
