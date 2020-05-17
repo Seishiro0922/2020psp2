@@ -4,8 +4,7 @@
 #include <math.h>
 
 extern double ave_online(int i,double val,double ave)
-{ ave=1;
-  ave=(i-1)*ave/i+val/i;
+{  ave=(i-1)*ave/i+val/i;
   return ave;     
 }
 extern double var_online(int i,double val, double ve,double save,double var)
