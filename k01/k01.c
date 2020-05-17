@@ -11,9 +11,9 @@ extern double ave_online(int i,double val,double ave)
 extern double var_online(int i,double val, double ve,double save,double var)
 {  save=1;
    ve=1;
-   var=(((n-1)*save/n)+val*val/n)-pow((((n-1)*ve/n)+val/n),2);
-   save=(n-1)*save/n+val*val/n;
-   ve=(n-1)*ve/n+val/n;
+   var=(((i-1)*save/i)+val*val/i)-pow((((i-1)*ve/i)+val/i),2);
+   save=(i-1)*save/i+val*val/i;
+   ve=(i-1)*ve/i+val/i;
    return var;
 }
 
@@ -42,11 +42,11 @@ int main(void)
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
-        i++
+        i++;
 
         A1=ave_online(i,val,ave);
         
-        A2=var_online(n,val,save,ve,var);
+        A2=var_online(i,val,save,ve,var);
 
         
     }
