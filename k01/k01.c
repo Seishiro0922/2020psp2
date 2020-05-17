@@ -46,7 +46,7 @@ int main(void)
         sscanf(buf,"%lf",&val);
 
         A1=ave_online(i,val,ave);
-        A2=var_online(i,val,save,ve,var);
+        A2=var_online(n,val,save,ve,var);
 
         
     }
