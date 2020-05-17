@@ -13,9 +13,9 @@ extern double var_online(int n,double val, double ve,double save,double var)
 {  save=1;
    ve=1;
    n++;
-   var=(((i-1)*save/i)+val*val/i)-pow((((i-1)*ve/i)+val/i),2);
-   save=(i-1)*save/i+val*val/i;
-   ve=(i-1)*ve/i+val/i;
+   var=(((n-1)*save/n)+val*val/n)-pow((((n-1)*ve/n)+val/n),2);
+   save=(n-1)*save/n+val*val/n;
+   ve=(n-1)*ve/n+val/n;
    return var;
 }
 
