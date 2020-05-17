@@ -31,7 +31,15 @@ aa83988848 薗田光太郎
 一方，母集団の平均の推定値は，標本の平均<img src="/k01/tex/33717a96ef162d4ca3780ca7d161f7ad.svg?invert_in_darkmode&sanitize=true" align=middle width=9.39498779999999pt height=18.666631500000015pt/>が最良である．
 
 ## ソースコードの説明
+6 標本の平均を求める関数
 
+11　標本の分散を求める関数
+
+47　49　関数を用いて平均と分散を求める
+
+54　母集団の分散を求める
+
+55　母集団の平均を求める
 
 
 ## 入出力結果
@@ -39,10 +47,10 @@ aa83988848 薗田光太郎
 ```
 input the filename of sample:../sample/heights_male.csv
 the filename of sample: ../sample/heights_male.csv
-sample mean：
-sample variance：
-population mean (estimated)：
-population variance (estimated)：
+sample mean：22.262500
+sample variance：3164.657344
+population mean (estimated)：22.262500
+population variance (estimated)：3616.751250
 ```
 
 ## 修正履歴
