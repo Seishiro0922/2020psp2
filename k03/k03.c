@@ -23,10 +23,13 @@ int main(int argc, char* argv[])
 
 
 
-    sscanf(argv, "%lf %lf %lf", &mu,&sigma,&num_dummy);
+    
     printf("============================================\n");
+    sscanf(argv[2],"%lf",&mu);
     printf("template mean: %4.1lf\n",mu);
+    sscanf(argv[3],"%lf",&sigma);
     printf("template standard deviation: %3.2lf\n",sigma);
+    sscanf(argv[4],"%lf",&num_dummy);
     printf("Num of dummy data: %d\n",num_dummy);
     printf("============================================\n");
 
