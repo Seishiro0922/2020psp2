@@ -93,13 +93,19 @@ Num of dummy data: 5
 
 
 template mean: 170.8
+
 templete standard deviation: 5.43
+
 Num of dummy date: 5
 
 159.97
+
 172.04
+
 173.93
+
 173.14
+
 165.73
 
 
