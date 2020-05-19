@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
 
 
 
-    sscanf(argv[4],"%s %s %s %s",n,&mu,&sigma,&num_dummy);
+    sscanf(argv[4],"%s %lf %lf %lf",n,&mu,&sigma,&num_dummy);
     printf("============================================\n");
     printf("template mean: %4.1lf\n",mu);
     printf("template standard deviation: %3.2lf\n",sigma);
