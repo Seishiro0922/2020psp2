@@ -29,6 +29,7 @@ int main(int argc, char* argv[])
     printf("template standard deviation: %3.2lf\n",sigma);
     printf("Num of dummy data: %d\n",num_dummy);
     printf("============================================\n");
+    sscanf(argv,"%s %s %s",mu,sigma,num_dummy);
 
     srand(RAND_SEED);
     for(i=1;i<=num_dummy;i++){
