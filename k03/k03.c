@@ -19,12 +19,12 @@ int main(int argc, char* argv[])
     double sigma;
     int i;
     double dummy;
-    char str[4];
+    char n;
 
 
 
 
-    sscanf(str,"%s %s %s",mu,sigma,num_dummy);
+    sscanf(argv[4],"%s %s %s %s",n,&mu,&sigma,&num_dummy);
     printf("============================================\n");
     printf("template mean: %4.1lf\n",mu);
     printf("template standard deviation: %3.2lf\n",sigma);
