@@ -15,8 +15,9 @@ int main(void)
     int num_male, num_female, num_unknown, num_whole;
     int gender;
     double lower_bound,upper_bound;
+    struct D{double ID; int gender; double height;};
 
-    printf("input the filename of sample:");
+    printf("input the filename of sample height:");
     fgets(fname,sizeof(fname),stdin);
     fname[strlen(fname)-1] = '\0';
     printf("the filename of sample: %s\n",fname);
