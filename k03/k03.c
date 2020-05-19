@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
     srand(RAND_SEED);
     for(i=1;i<=num_dummy;i++){
         /* r_stdnormを使って，1人のデータを捏造 */
-        dummy = r_stdnorm()  ;
+        dummy = r_stdnorm()*sigma+mu;
         printf("%5.2lf\n",dummy);
     }
 
