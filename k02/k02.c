@@ -5,19 +5,20 @@
 
 extern double p_stdnorm(double z);
 
+#define MU_A 170.8 MU_B 169.7 sigma_A 5.43 sigma_B 5.5
 int main(void)
 {
     int i;
-    double val,z1,z2,u1,b1,u2,b2,x1,x2,max_val=1,min_val=1;
+    double val,z1,z2,u1,b1,u2,b2,x1,x2,YUDO_A=1,YUDO_B=1;
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
     double L1=1,L2=1;
 
-    u1=170.8;
-    b1=5.43;
-    u2=169.7;
-    b2=5.5;
+    u1=MU_A;
+    b1=sigma_A;
+    u2=MU_B;
+    b2=sigma_B;
     
 
     printf("input the filename of sample:");
@@ -38,8 +39,8 @@ int main(void)
         z2=(val-u2)/b2;
         x1=p_stdnorm(z1);
         x2=p_stdnorm(z2);
-        max_val=max_val*x1;
-        min_val=min_val*x2;
+        YUDO_A=YUDO_A*x1;
+        YUDO_B=YUDO_B*x2;
         
 
 
@@ -51,8 +52,8 @@ int main(void)
         exit(EXIT_FAILURE);
     }
 
-    printf("L_A: %f\n",max_val);
-    printf("L_B: %f\n",min_val);
+    printf("L_A: %f\n",YUDO_A);
+    printf("L_B: %f\n",YUDO_B);
 
     return 0;
 
