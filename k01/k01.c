@@ -5,7 +5,7 @@
 
 extern double ave_online(int i,double val,double ave)
 {  
-     ave=((i-1)*ave/i)+(val/i);    
+     ave=((i-1)/i*ave)+(val/i);    
   return ave;
 }
 extern double var_online(int i,double val, double ve,double save,double var)
@@ -20,7 +20,7 @@ extern double var_online(int i,double val, double ve,double save,double var)
 int main(void)
 {   
     int i=0;
-    double val,ave,save,var,ve,samplemean,samplevariance,populationmean,populationvariance;
+    double val=1,ave=1,save,var,ve,pm,samplemean,samplevariance,populationmean,populationvariance;
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
@@ -52,6 +52,8 @@ int main(void)
 
      populationvariance=i*samplevariance/(i-1);
      populationmean=samplemean;
+
+     pm=pow(populationvariance/i,0.5);
      
     if(fclose(fp) == EOF){
         fputs("file close error\n",stderr);
@@ -61,6 +63,7 @@ int main(void)
     printf("sample variance=%lf\n",samplevariance);
     printf("population mean=%lf\n", populationmean);
     printf("population variance=%lf\n", populationvariance);
+    printf("pm=%lf\n",pm);
 
 
     return 0;
