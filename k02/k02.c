@@ -5,7 +5,10 @@
 
 extern double p_stdnorm(double z);
 
-#define MU_A 170.8 MU_B 169.7 sigma_A 5.43 sigma_B 5.5
+#define MU_A 170.8 
+#define MU_B 169.7 
+#define sigma_A 5.43 
+#define sigma_B 5.5
 int main(void)
 {
     int i;
@@ -35,7 +38,7 @@ int main(void)
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
         
-        z1=(val-u1)/b1;
+        z1=(val-u1/b1;
         z2=(val-u2)/b2;
         x1=p_stdnorm(z1);
         x2=p_stdnorm(z2);
