@@ -1,8 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
 
+<<<<<<< HEAD
 extern void get_bound(int num_male, int num_whole, double* lower_bound, double* upper_bound);
 extern int choose(int n, int r);
 
@@ -90,3 +87,5 @@ int choose(int n, int r)
     for(i=r;i>0;i--) bunshi *= i;
     return bunbo/bunshi;
 }
+=======
+>>>>>>> 36ad8925216052d4143bb0321b3892b7b3d4003c
