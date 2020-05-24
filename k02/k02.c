@@ -38,7 +38,7 @@ int main(void)
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
         
-        z1=(val-u1/b1;
+        z1=(val-u1)/b1;
         z2=(val-u2)/b2;
         x1=p_stdnorm(z1);
         x2=p_stdnorm(z2);
