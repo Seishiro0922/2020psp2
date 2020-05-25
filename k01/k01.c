@@ -20,7 +20,7 @@ extern double var_online(int i,double val, double ve,double save,double var)
 int main(void)
 {   
     int i=0;
-    double val=1,ave=1,save,var,ve,pm,samplemean,samplevariance,populationmean,populationvariance;
+    double val,ave,save,var,ve,pm,samplemean,samplevariance,populationmean,populationvariance;
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
