@@ -24,6 +24,8 @@ int main(void)
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
+    ave=save=ve=1;
+    
 
     
 
