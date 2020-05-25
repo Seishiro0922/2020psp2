@@ -24,7 +24,7 @@ int main(void)
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
-    ave=save=ve=1;
+    i++;
     
 
     
@@ -43,7 +43,7 @@ int main(void)
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
-        i++;
+
 
         samplemean=ave_online(i,val,ave);
         
