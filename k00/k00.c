@@ -9,6 +9,7 @@ int main(void)
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
+    int i=0;
 
     printf("input the filename of sample:");
     fgets(fname,sizeof(fname),stdin);
@@ -23,6 +24,7 @@ int main(void)
 
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
+        i++
         if(val>max_val){
             max_val = val;
         }
@@ -38,6 +40,7 @@ int main(void)
 
     printf("Highest: %f\n",max_val);
     printf("Lowest: %f\n",min_val);
+    printf("i=&d\n",i);
 
     return 0;
 }
