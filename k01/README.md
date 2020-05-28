@@ -46,13 +46,13 @@ aa83988848 薗田光太郎
 
 11　標本の分散を求める関数
 
-47　49　関数を用いて平均と分散を求める
+48 50　関数を用いて平均と分散を求める
 
-54　母集団の分散を求める
+55　母集団の分散を求める
 
-55　母集団の平均を求める
+56　母集団の平均を求める
 
-57 標準誤差を求める
+58 標準誤差を求める
 
 
 ## 入出力結果
@@ -60,10 +60,11 @@ aa83988848 薗田光太郎
 ```
 input the filename of sample:../sample/heights_male.csv
 the filename of sample: ../sample/heights_male.csv
-sample mean：22.262500
-sample variance：3164.657344
-population mean (estimated)：22.262500
-population variance (estimated)：3616.751250
+sample mean：21.387500
+sample variance：3201.976094
+population mean (estimated)：21.387500
+population variance (estimated)：3659.401250
+pm=21.387500
 ```
 
 ## 修正履歴

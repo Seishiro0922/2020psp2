@@ -5,23 +5,23 @@
 
 extern double ave_online(int i,double val,double ave)
 {   
-     ave=(i-1)*ave/i+val/i;
+    ave=((i-1)*ave+val)/i;
 
   return ave;
 }
-extern double var_online(int i,double val, double ve,double save,double var)
-{  
-   var=(((i-1)/i*save)+(val*val)/i)-pow((((i-1)/i*ve)+val/i),2);
-   save=(i-1)*save/i+val*val/i;
-   ve=(i-1)*ve/i+val/i;
-   return var;
+extern double var_online(int i,double val,double ave,double save)
+{    
+    
+     save=((i-1)*save+val*val)/i;
+   return ((((i-1)/i)*save)+(val*val)/i)-pow((((i-1)/i*ave)+val/i),2);
+   
 }
 
 
 int main(void)
 {   
     int i=0;
-    double val,ave=1,save,var,ve,pm,samplemean,samplevariance,populationmean,populationvariance;
+    double val,ave=0,save=0,pm,samplemean,samplevariance,populationmean,populationvariance;
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
@@ -45,9 +45,9 @@ int main(void)
         i++;
 
 
+        samplevariance=var_online(i,val,save,ave);
+
         samplemean=ave_online(i,val,ave);
-        
-        samplevariance=var_online(i,val,save,ve,var);
 
         
     }
