@@ -106,5 +106,5 @@ Num of dummy date: 5
 
 ## 修正履歴
 
-[comment #20200521]
+[comment #20200521 kotaro]
 - OK．課題3は完了．
