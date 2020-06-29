@@ -39,6 +39,10 @@ int main(void)
     printf("Number of female sample : %d\n",num_female);
     printf("Male Ratio : %lf\n",(double)num_male/num_whole);
 
+
+
+
+
     if(fclose(fp) == EOF){
         fputs("file close error\n",stderr);
         exit(EXIT_FAILURE);
