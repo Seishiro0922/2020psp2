@@ -42,7 +42,7 @@ aa83988848 薗田光太郎
 |母集団分散|<img src="/k01/tex/35ae058b877f36e7384685a2e19cb7e4.svg?invert_in_darkmode&sanitize=true" align=middle width=37.44306224999999pt height=21.18721440000001pt/>|
 
 ## ソースコードの説明
-6  標本の平均を求める関数  
+6  標本の平均を求める関数   kokokokkokkokokokok
 
 12　標本の分散を求める関数
 
